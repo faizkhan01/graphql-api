@@ -14,6 +14,10 @@ const userDataPath = path.resolve(__dirname, "../data/user.json");
 const responseDataPath = path.resolve(__dirname, "../data/response.json");
 const actionDataPath = path.resolve(__dirname, "../data/action.json");
 const triggerDataPath = path.resolve(__dirname, "../data/trigger.json");
+const resourceTemplateDataPath = path.resolve(
+  __dirname,
+  "../data/resourceTemplate.json"
+);
 
 // Read JSON data
 const nodeData = JSON.parse(fs.readFileSync(nodeDataPath, "utf-8"));
@@ -21,6 +25,9 @@ const users = JSON.parse(fs.readFileSync(userDataPath, "utf-8"));
 const responseData = JSON.parse(fs.readFileSync(responseDataPath, "utf-8"));
 const actionData = JSON.parse(fs.readFileSync(actionDataPath, "utf-8"));
 const triggerData = JSON.parse(fs.readFileSync(triggerDataPath, "utf-8"));
+const resourceTemplateData = JSON.parse(
+  fs.readFileSync(resourceTemplateDataPath, "utf-8")
+);
 
 export const resolvers = {
   Long: GraphQLLong,
@@ -64,7 +71,6 @@ export const resolvers = {
     },
 
     trigger: (parent) => {
-      // Assuming you also store triggers in the response or elsewhere
       return (
         triggerData.find((trigger) => trigger._id === parent.trigger) || null
       );
@@ -78,6 +84,17 @@ export const resolvers = {
           nodeData.find((node) => node.compositeId === compositeId) || null
         );
       });
+    },
+  },
+
+  Action: {
+    resourceTemplate: (parent) => {
+      // Map the resourceTemplateId to the actual resourceTemplate object
+      return (
+        resourceTemplateData.find(
+          (template) => template._id === parent.resourceTemplateId
+        ) || null
+      );
     },
   },
 
