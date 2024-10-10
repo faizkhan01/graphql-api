@@ -82,6 +82,7 @@ export const typeDefs = gql`
     responses: [Response]
     responseIds: [ID]
     actions: [Action]
+    postActions: [Action]
     actionIds: [ID]
     priority: Float
     compositeId: ID
