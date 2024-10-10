@@ -98,6 +98,17 @@ export const resolvers = {
     },
   },
 
+  Trigger: {
+    resourceTemplate: (parent) => {
+      // Map the resourceTemplateId to the actual resourceTemplate object
+      return (
+        resourceTemplateData.find(
+          (template) => template._id === parent.resourceTemplateId
+        ) || null
+      );
+    },
+  },
+
   Mutation: {
     login: (_, { username, password }, { res }) => {
       // Find the user by username
