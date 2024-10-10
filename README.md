@@ -96,27 +96,97 @@ Here you can use the following credentials to login:
   ```bash
   query Node($nodeId: ID) {
   node(nodeId: $nodeId) {
-   name
-   responses {
-     name
-     platforms {
-       build
-     }
-   }
-   actions {
-     name
-   }
-   postActions {
-     name
-   }
-   trigger {
-     name
-   }
-   parents {
-     name
-   }
+    name
+    responses {
+      name
+      platforms {
+        build
+        localeGroups {
+          localeGroupId
+          variations {
+            name
+            responses
+          }
+        }
+      }
+      description
+      createdAt
+      updatedAt
+    }
+    actions {
+      name
+      resourceTemplate {
+        name
+        schema
+        description
+        functionString
+        key
+        createdAt
+        updatedAt
+      }
+      description
+      functionString
+      resourceTemplateId
+      updatedAt
+      createdAt
+    }
+    postActions {
+      name
+      resourceTemplate {
+        name
+        schema
+        description
+        functionString
+        key
+        createdAt
+        updatedAt
+      }
+      description
+      functionString
+      resourceTemplateId
+      updatedAt
+      createdAt
+    }
+    trigger {
+      name
+      description
+      functionString
+      name
+      resourceTemplate {
+        name
+        description
+        functionString
+        integrationId
+        key
+        schema
+      }
+      resourceTemplateId
+      createdAt
+      updatedAt
+    }
+    parents {
+      name
+      responses {
+        name
+        description
+        platforms {
+          build
+          integrationId
+          localeGroups {
+            localeGroupId
+            variations {
+              name
+              responses
+            }
+          }
+        }
+        updatedAt
+        createdAt
+      }
+    }
   }
   }
+
   ```
 
 # Authentication
