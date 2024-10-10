@@ -80,6 +80,15 @@ Here you can start querying the API or running mutations.
   }
   ```
 
+Here you can use the following credentials to login:
+
+```bash
+{
+"username": "testuser",
+"password": "password123"
+}
+```
+
 # Queries
 
 - node(nodeId: String!): Fetch a node by its ID with actions, responses, postActions and other relational datas.
