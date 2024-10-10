@@ -16,7 +16,7 @@ This repository contains a GraphQL API developed with Node.js and Apollo Server.
 # Features
 
 - User authentication via JWT tokens
-- CRUD operations for nodes
+- Can query node, actions, responses, and some other relational data
 - Middleware for extracting user information from JWT in cookies
 
 # Technologies
